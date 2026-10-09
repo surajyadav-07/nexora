@@ -1,0 +1,475 @@
+/* ==========================================================
+   NEXORA - Complete Dark Mode Theme Engine (WCAG AA Compliant)
+   Controls theme variables and component overrides when
+   data-theme="dark" is active on <html>.
+   ========================================================== */
+
+[data-theme="dark"] {
+    /* Surface and Background Tokens */
+    --bg-light: #0b1120;
+    --surface-white: #1e293b;
+    --surface-secondary: #0f172a;
+    --surface-tertiary: #334155;
+
+    /* Typography Contrast Tokens */
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --text-heading: #ffffff;
+    --border-color: #334155;
+    --border-subtle: #1e293b;
+
+    /* Accent & Brand Overrides for Dark Contrast */
+    --dark-navy: #020617;
+    --dark-hover: #1e293b;
+    --primary-color: #3b82f6;
+    --primary-hover: #2563EB;
+    --secondary-color: #38bdf8;
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+    --shadow-hover: 0 14px 32px rgba(0, 0, 0, 0.65);
+}
+
+/* ==========================================================
+   1. GLOBAL BODY & HEADER CONTRAST
+   ========================================================== */
+[data-theme="dark"] body {
+    background-color: var(--bg-light);
+    color: var(--text-main);
+}
+
+/* Fix header logo text visibility: bright white in dark mode */
+[data-theme="dark"] .header .logo-name,
+[data-theme="dark"] .logo-name {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .logo-tagline {
+    color: var(--text-muted);
+}
+
+[data-theme="dark"] .action-btn {
+    background-color: var(--surface-white);
+    color: var(--text-main);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .action-btn i {
+    color: var(--secondary-color);
+}
+
+[data-theme="dark"] .action-btn:hover {
+    border-color: var(--primary-color);
+    background-color: var(--surface-tertiary);
+}
+
+/* ==========================================================
+   2. SEARCH BAR, SUGGESTIONS & TAG PILLS
+   ========================================================== */
+[data-theme="dark"] .searchbar {
+    background-color: var(--surface-white);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .searchbar input {
+    color: var(--text-main);
+}
+
+[data-theme="dark"] .searchbar input::placeholder {
+    color: var(--text-muted);
+}
+
+[data-theme="dark"] .search-suggestions {
+    background-color: var(--surface-white);
+    border-color: var(--border-color);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="dark"] .suggestion-header {
+    background-color: var(--surface-secondary);
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .suggestion-header button {
+    color: var(--secondary-color);
+}
+
+[data-theme="dark"] .suggestion-item {
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .suggestion-item:hover {
+    background-color: rgba(59, 130, 246, 0.15);
+}
+
+[data-theme="dark"] .suggestion-title {
+    color: var(--text-main);
+}
+
+[data-theme="dark"] .suggestion-price {
+    color: var(--secondary-color);
+}
+
+[data-theme="dark"] .tag-pill {
+    background-color: var(--surface-tertiary);
+    color: #e2e8f0;
+    border-color: #475569;
+}
+
+[data-theme="dark"] .tag-pill:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-color: var(--primary-color);
+}
+
+/* ==========================================================
+   3. NAVIGATION BAR & MEGA DROPDOWN
+   ========================================================== */
+[data-theme="dark"] .navigation-bar {
+    background-color: var(--surface-white);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .categories {
+    background: linear-gradient(135deg, #020617, #0f172a);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .mega-dropdown {
+    background-color: var(--surface-white);
+    border-color: var(--border-color);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.65);
+}
+
+[data-theme="dark"] .mega-dropdown a {
+    color: #cbd5e1;
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .mega-dropdown a i {
+    color: var(--secondary-color);
+}
+
+[data-theme="dark"] .mega-dropdown a:hover {
+    background-color: var(--surface-tertiary);
+    color: var(--secondary-color);
+}
+
+[data-theme="dark"] .menu a {
+    color: #e2e8f0;
+}
+
+[data-theme="dark"] .menu a:hover {
+    color: var(--secondary-color);
+}
+
+/* ==========================================================
+   4. CATEGORY CARDS & PRODUCT CARDS
+   ========================================================== */
+[data-theme="dark"] .section-title h2 {
+    color: var(--text-heading);
+}
+
+[data-theme="dark"] .category-card {
+    background-color: var(--surface-white);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .category-card h3 {
+    color: var(--text-heading);
+}
+
+[data-theme="dark"] .category-card i {
+    color: var(--secondary-color);
+}
+
+[data-theme="dark"] .category-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-hover);
+}
+
+[data-theme="dark"] .product-card {
+    background-color: var(--surface-white);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .product-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-hover);
+}
+
+[data-theme="dark"] .product-image-wrap {
+    background-color: var(--surface-secondary);
+}
+
+[data-theme="dark"] .product-brand-tag {
+    color: var(--secondary-color);
+}
+
+[data-theme="dark"] .product-title {
+    color: var(--text-main);
+}
+
+[data-theme="dark"] .product-title:hover {
+    color: var(--secondary-color);
+}
+
+[data-theme="dark"] .rating-num {
+    color: var(--text-main);
+}
+
+[data-theme="dark"] .reviews-count {
+    color: var(--text-muted);
+}
+
+[data-theme="dark"] .current-price {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .original-price {
+    color: #64748b;
+}
+
+[data-theme="dark"] .discount-pill {
+    background-color: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+}
+
+[data-theme="dark"] .wishlist-toggle-btn {
+    background-color: rgba(30, 41, 59, 0.9);
+    border-color: var(--border-color);
+    color: var(--text-muted);
+}
+
+[data-theme="dark"] .wishlist-toggle-btn:hover,
+[data-theme="dark"] .wishlist-toggle-btn.active {
+    background-color: var(--surface-white);
+    color: var(--danger-color);
+    border-color: var(--danger-color);
+}
+
+[data-theme="dark"] .btn-view-details {
+    background-color: var(--surface-tertiary);
+    border-color: #475569;
+    color: var(--text-main);
+}
+
+[data-theme="dark"] .btn-view-details:hover {
+    background-color: #475569;
+    color: var(--secondary-color);
+}
+
+/* ==========================================================
+   5. TOOLBAR, SELECT & PAGINATION
+   ========================================================== */
+[data-theme="dark"] .product-toolbar {
+    background-color: var(--surface-white);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] #active-category-label {
+    color: var(--text-heading);
+}
+
+[data-theme="dark"] .reset-filter-btn {
+    background-color: var(--surface-tertiary);
+    border-color: #475569;
+    color: #cbd5e1;
+}
+
+[data-theme="dark"] .reset-filter-btn:hover {
+    background-color: #475569;
+    color: #ffffff;
+}
+
+[data-theme="dark"] .toolbar-right label {
+    color: var(--text-muted);
+}
+
+[data-theme="dark"] .toolbar-right select {
+    background-color: var(--surface-white);
+    border-color: var(--border-color);
+    color: var(--text-main);
+}
+
+[data-theme="dark"] .page-btn {
+    background-color: var(--surface-white);
+    border-color: var(--border-color);
+    color: #e2e8f0;
+}
+
+[data-theme="dark"] .page-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+[data-theme="dark"] .page-btn.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #ffffff;
+}
+
+/* ==========================================================
+   6. CART DRAWER & OVERLAY
+   ========================================================== */
+[data-theme="dark"] .cart-drawer {
+    background-color: var(--surface-white);
+    border-left: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .cart-header {
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .cart-header h3 {
+    color: var(--text-heading);
+}
+
+[data-theme="dark"] #close-cart-btn {
+    color: var(--text-muted);
+}
+
+[data-theme="dark"] #close-cart-btn:hover {
+    color: var(--text-main);
+}
+
+[data-theme="dark"] .cart-item {
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .cart-item-details h4 {
+    color: var(--text-main);
+}
+
+[data-theme="dark"] .cart-item-price {
+    color: var(--text-muted);
+}
+
+[data-theme="dark"] .qty-control {
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .qty-control button {
+    background-color: var(--surface-tertiary);
+    color: var(--text-main);
+}
+
+[data-theme="dark"] .qty-control button:hover {
+    background-color: #475569;
+}
+
+[data-theme="dark"] .qty-control span {
+    color: var(--text-main);
+}
+
+[data-theme="dark"] .item-total,
+[data-theme="dark"] .total-price {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .btn-remove {
+    color: var(--text-muted);
+}
+
+[data-theme="dark"] .btn-remove:hover {
+    color: var(--danger-color);
+}
+
+[data-theme="dark"] .cart-footer {
+    background-color: var(--surface-secondary);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .total-row {
+    border-color: var(--border-color);
+    color: #ffffff;
+}
+
+/* ==========================================================
+   7. QUICK VIEW MODAL & EMPTY STATES
+   ========================================================== */
+[data-theme="dark"] .modal-box {
+    background-color: var(--surface-white);
+    border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .modal-close {
+    background-color: var(--surface-tertiary);
+    color: var(--text-main);
+}
+
+[data-theme="dark"] .modal-close:hover {
+    background-color: #475569;
+}
+
+[data-theme="dark"] .modal-product-details h2 {
+    color: var(--text-heading);
+}
+
+[data-theme="dark"] .product-desc {
+    color: #cbd5e1;
+}
+
+[data-theme="dark"] .modal-view-full-btn {
+    background-color: var(--surface-tertiary);
+    border-color: #475569;
+    color: var(--text-main);
+}
+
+[data-theme="dark"] .empty-state,
+[data-theme="dark"] .empty-drawer {
+    background-color: var(--surface-secondary);
+    border-color: var(--border-color);
+}
+
+/* ==========================================================
+   8. SKELETON LOADERS & TOAST NOTIFICATIONS
+   ========================================================== */
+[data-theme="dark"] .skeleton {
+    background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
+    background-size: 200% 100%;
+}
+
+[data-theme="dark"] .skeleton-card {
+    background-color: var(--surface-white);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .toast {
+    background-color: #020617;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+/* ==========================================================
+   9. FOOTER & NEWSLETTER FORM
+   ========================================================== */
+[data-theme="dark"] .footer {
+    background-color: #020617;
+}
+
+[data-theme="dark"] .footer-col h3 {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .footer-col ul li a {
+    color: #94a3b8;
+}
+
+[data-theme="dark"] .footer-col ul li a:hover {
+    color: var(--secondary-color);
+}
+
+[data-theme="dark"] .newsletter-form input {
+    background-color: #0f172a;
+    border-color: var(--border-color);
+    color: #ffffff;
+}
+
+[data-theme="dark"] .newsletter-form input:focus {
+    border-color: var(--primary-color);
+}
+
+[data-theme="dark"] .footer-bottom {
+    background-color: #020617;
+    border-color: rgba(255, 255, 255, 0.08);
+}

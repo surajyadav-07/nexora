@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXORA | Smart Shopping. Modern Living.</title>
+    <meta name="description" content="NEXORA - Smart Shopping. Modern Living. Explore 200+ curated products from world-class tech and fashion brands with express shipping.">
+    <!-- Immediate theme application before stylesheets load to prevent flash -->
+    <script>
+        (function() {
+            var theme = localStorage.getItem('nexora_theme') || 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    <!-- Google Fonts: Plus Jakarta Sans for a clean luxury tech aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="style.css" rel="stylesheet">
+    <link href="css/darkmode.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="wrapper">
+        <!-- Header -->
+        <header class="header">
+            <!-- Brand Logo -->
+            <a href="index.html" class="logo arrange-left">
+                <div class="logo-brand">
+                    <span class="logo-badge">N</span>
+                    <h2><span class="logo-name">NEXORA</span></h2>
+                </div>
+                <span class="logo-tagline">Smart Shopping. Modern Living.</span>
+            </a>
+            
+            <!-- Search Bar with Live Suggestions Dropdown & History -->
+            <div class="search-wrapper">
+                <div class="searchbar">
+                    <input type="text" id="search-input" placeholder="Search 200+ products, brands (Apple, Nike, Sony...)" autocomplete="off">
+                    <button id="search-btn" aria-label="Search">
+                       <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+                <div class="search-suggestions" id="search-suggestions">
+                    <!-- Dynamic search suggestions, popular tags & history injected by app.js -->
+                </div>
+            </div>
+            
+            <!-- Header Action Controls -->
+            <div class="selected-product">
+                <!-- User Account / Auth Button -->
+                <a href="pages/auth.html" class="action-btn auth-btn" id="nav-auth-btn" title="Account / Sign In">
+                    <i class="fa-regular fa-user"></i>
+                    <span id="nav-user-label" style="background: none; color: inherit; padding: 0; min-width: auto;">Sign In</span>
+                </a>
+
+                <!-- Dark Mode Toggle Button -->
+                <button class="action-btn theme-btn" id="theme-toggle-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon" id="theme-icon"></i>
+                </button>
+
+                <!-- Wishlist Button -->
+                <a href="pages/wishlist.html" class="action-btn" id="wishlist-btn" title="View Wishlist" aria-label="View Wishlist">
+                    <i class="fa-solid fa-heart"></i>
+                    <span id="wishlist-count">0</span>
+                </a>
+
+                <!-- Cart Button -->
+                <button class="action-btn" id="cart-btn" title="View Cart" aria-label="View Cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cart-count">0</span>
+                </button>
+            </div>
+        </header>
+    </div>
+
+    <!-- Sticky Navigation Bar with Mega Category Menu -->
+    <nav class="navigation-bar">
+        <div class="categories">
+            <i class="fa-solid fa-bars"></i>
+            <span>All Categories</span>
+            <div class="mega-dropdown">
+                <a href="#featured-products" data-category="Mobiles"><i class="fa-solid fa-mobile-screen-button"></i> Mobiles (30)</a>
+                <a href="#featured-products" data-category="Laptops"><i class="fa-solid fa-laptop"></i> Laptops (25)</a>
+                <a href="#featured-products" data-category="Fashion"><i class="fa-solid fa-shirt"></i> Fashion (30)</a>
+                <a href="#featured-products" data-category="Shoes"><i class="fa-solid fa-shoe-prints"></i> Shoes (25)</a>
+                <a href="#featured-products" data-category="Watches"><i class="fa-solid fa-stopwatch"></i> Watches (20)</a>
+                <a href="#featured-products" data-category="Electronics"><i class="fa-solid fa-headphones"></i> Electronics (30)</a>
+                <a href="#featured-products" data-category="Accessories"><i class="fa-solid fa-glasses"></i> Accessories (20)</a>
+                <a href="#featured-products" data-category="Gaming"><i class="fa-solid fa-gamepad"></i> Gaming (20)</a>
+            </div>
+        </div>
+
+        <div class="menu">
+            <a href="index.html">Home</a>
+            <a href="#featured-products">Explore Catalog</a>
+            <a href="pages/wishlist.html">Wishlist</a>
+            <a href="pages/checkout.html">Checkout</a>
+            <a href="pages/auth.html">My Account</a>
+            <a href="#footer">Support</a>
+        </div>
+    </nav>
+
+    <!-- Main Content Area Wrapping Hero, Categories, Products & Recently Viewed -->
+    <main>
+        <!-- Hero Section Banner -->
+        <section class="hero-section">
+            <div class="hero-overlay">
+                <div class="hero-content">
+                    <span class="hero-badge">NEW SEASON 2026</span>
+                    <h1>Upgrade Your Lifestyle With NEXORA</h1>
+                    <p>Discover 200+ curated products from top world-class brands with ultra-fast delivery and warranty protection.</p>
+                    <button type="button" id="hero-shop-btn">Shop Collection</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Categories Quick Grid -->
+        <section class="featured-categories wrapper">
+            <div class="section-title">
+                <h2>Explore Popular Categories</h2>
+                <p class="section-subtitle">Pick a category to discover trending deals</p>
+            </div>
+
+            <div class="category-container">
+                <div class="category-card" data-category="Mobiles">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                    <h3>Mobiles</h3>
+                </div>
+
+                <div class="category-card" data-category="Laptops">
+                    <i class="fa-solid fa-laptop"></i>
+                    <h3>Laptops</h3>
+                </div>
+
+                <div class="category-card" data-category="Gaming">
+                    <i class="fa-solid fa-gamepad"></i>
+                    <h3>Gaming</h3>
+                </div>
+
+                <div class="category-card" data-category="Shoes">
+                    <i class="fa-solid fa-shoe-prints"></i>
+                    <h3>Shoes</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products Section -->
+        <section class="featured-products wrapper" id="featured-products">
+            <div class="section-title">
+                <h2>Trending Products</h2>
+                <p class="section-subtitle">Explore 200+ verified original products with official brand warranties</p>
+            </div>
+
+            <!-- Filter & Sorting Control Bar -->
+            <div class="product-toolbar">
+                <div class="toolbar-left">
+                    <span id="active-category-label">All Products (200)</span>
+                    <button id="reset-filter-btn" class="reset-filter-btn" title="Reset all filters">
+                        <i class="fa-solid fa-rotate-left"></i> Reset
+                    </button>
+                </div>
+                <div class="toolbar-right">
+                    <label for="sort-select"><i class="fa-solid fa-arrow-down-short-wide"></i> Sort by:</label>
+                    <select id="sort-select">
+                        <option value="default">Featured</option>
+                        <option value="price-low-high">Price: Low to High</option>
+                        <option value="price-high-low">Price: High to Low</option>
+                        <option value="rating-high-low">Highest Rated</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Dynamic Product Container (Injected by JS with Skeleton Shimmer) -->
+            <div class="product-container" id="product-container">
+                <!-- Shimmer skeleton loaders appear here initially -->
+            </div>
+
+            <!-- Pagination Controls Bar -->
+            <div class="pagination-container" id="pagination-container">
+                <!-- Dynamic page numbers injected by app.js -->
+            </div>
+        </section>
+
+        <!-- Recently Viewed Section on Homepage -->
+        <section class="featured-products wrapper" id="home-recently-viewed-section" style="display: none; margin-top: 30px;">
+            <div class="section-title">
+                <h2>Recently Viewed Products</h2>
+                <p class="section-subtitle">Pick up right where you left off</p>
+            </div>
+            <div class="product-container" id="home-recently-viewed-container"></div>
+        </section>
+    </main>
+
+    <!-- Modern Multi-Column Footer -->
+    <footer class="footer" id="footer">
+        <div class="wrapper footer-container">
+            <div class="footer-col brand-col">
+                <div class="logo">
+                    <div class="logo-brand">
+                        <span class="logo-badge">N</span>
+                        <h2><span class="logo-name" style="color: white;">NEXORA</span></h2>
+                    </div>
+                    <span class="logo-tagline" style="color: #9ca3af;">Smart Shopping. Modern Living.</span>
+                </div>
+                <p>NEXORA is your premier multi-category digital superstore. Experience handpicked electronics, designer fashion, cutting-edge laptops, and smart living gear.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Explore</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#featured-products" data-category="Mobiles">Smartphones</a></li>
+                    <li><a href="#featured-products" data-category="Laptops">Laptops & Workstations</a></li>
+                    <li><a href="#featured-products" data-category="Gaming">Gaming Arena</a></li>
+                    <li><a href="pages/wishlist.html">My Wishlist</a></li>
+                    <li><a href="pages/checkout.html">Direct Checkout</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Customer Protection</h3>
+                <ul>
+                    <li><a href="#">Track Shipment</a></li>
+                    <li><a href="#">Hassle-Free Returns</a></li>
+                    <li><a href="#">Official Brand Warranty</a></li>
+                    <li><a href="#">Privacy & Security Policy</a></li>
+                    <li><a href="pages/auth.html">Manage Account</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>VIP Newsletter</h3>
+                <p>Join 45,000+ shoppers to unlock early access flash drops and exclusive coupon codes like <strong>NEXORA10</strong>.</p>
+                <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('Subscribed to NEXORA VIP newsletter!'); this.reset();">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Join</button>
+                </form>
+                <div class="payment-methods">
+                    <span><i class="fa-brands fa-cc-visa"></i></span>
+                    <span><i class="fa-brands fa-cc-mastercard"></i></span>
+                    <span><i class="fa-brands fa-google-pay"></i></span>
+                    <span><i class="fa-brands fa-apple-pay"></i></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="wrapper footer-bottom-content">
+                <p>&copy; 2026 NEXORA. Smart Shopping. Modern Living. All rights reserved.</p>
+                <div class="footer-badges">
+                    <span><i class="fa-solid fa-shield-halved"></i> 256-bit Encrypted Checkout</span>
+                    <span><i class="fa-solid fa-truck-fast"></i> Lightning Express Shipping</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Slide-Over Cart Drawer -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <aside class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3><i class="fa-solid fa-cart-shopping"></i> Shopping Cart</h3>
+            <button id="close-cart-btn" aria-label="Close cart">&times;</button>
+        </div>
+
+        <div class="cart-items" id="cart-items">
+            <!-- Dynamic Cart Items injected by JS -->
+        </div>
+
+        <div class="cart-footer">
+            <div class="cart-summary-row">
+                <span>Shipping</span>
+                <span class="free-shipping-tag">FREE</span>
+            </div>
+            <div class="cart-summary-row total-row">
+                <span>Total Amount:</span>
+                <span id="cart-total" class="total-price">₹0</span>
+            </div>
+            <a href="pages/checkout.html" class="checkout-btn">
+                Proceed to Checkout <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Product Quick View Modal -->
+    <div class="modal" id="product-modal">
+        <div class="modal-box product-detail-box">
+            <button id="close-product-modal-btn" class="modal-close">&times;</button>
+            <div id="modal-product-content">
+                <!-- Injected by openProductModal(productId) -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Core Scripts -->
+    <script src="products.js"></script>
+    <script src="app.js"></script>
+</body>
+</html> 

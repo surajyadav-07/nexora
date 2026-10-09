@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Wishlist | NEXORA</title>
+    <meta name="description" content="Manage your saved items and favorites on NEXORA. Move items to cart with one click or explore trending products.">
+    <!-- Immediate theme application before stylesheets load to prevent flash -->
+    <script>
+        (function() {
+            var theme = localStorage.getItem('nexora_theme') || 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!-- Stylesheets -->
+    <link href="../style.css" rel="stylesheet">
+    <link href="../css/darkmode.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="wrapper">
+        <header class="header">
+            <a href="../index.html" class="logo arrange-left">
+                <div class="logo-brand">
+                    <span class="logo-badge">N</span>
+                    <h2><span class="logo-name">NEXORA</span></h2>
+                </div>
+                <span class="logo-tagline">Smart Shopping. Modern Living.</span>
+            </a>
+            
+            <div class="search-wrapper">
+                <div class="searchbar">
+                    <input type="text" id="wishlist-search-input" placeholder="Search saved items..." autocomplete="off">
+                    <button id="wishlist-search-btn" aria-label="Search">
+                       <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="selected-product">
+                <a href="auth.html" class="action-btn auth-btn" id="nav-auth-btn" title="Account">
+                    <i class="fa-regular fa-user"></i>
+                    <span id="nav-user-label" style="background: none; color: inherit; padding: 0; min-width: auto;">Sign In</span>
+                </a>
+                <button class="action-btn theme-btn" id="theme-toggle-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon" id="theme-icon"></i>
+                </button>
+                <a href="wishlist.html" class="action-btn" id="wishlist-btn" title="View Wishlist" aria-label="View Wishlist" style="border-color: var(--primary-color);">
+                    <i class="fa-solid fa-heart text-danger"></i>
+                    <span id="wishlist-count">0</span>
+                </a>
+                <button class="action-btn" id="cart-btn" title="View Cart" aria-label="View Cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cart-count">0</span>
+                </button>
+            </div>
+        </header>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navigation-bar">
+        <div class="categories">
+            <i class="fa-solid fa-bars"></i>
+            <span>All Categories</span>
+            <div class="mega-dropdown">
+                <a href="../index.html#featured-products" data-category="Mobiles"><i class="fa-solid fa-mobile-screen-button"></i> Mobiles</a>
+                <a href="../index.html#featured-products" data-category="Laptops"><i class="fa-solid fa-laptop"></i> Laptops</a>
+                <a href="../index.html#featured-products" data-category="Fashion"><i class="fa-solid fa-shirt"></i> Fashion</a>
+                <a href="../index.html#featured-products" data-category="Shoes"><i class="fa-solid fa-shoe-prints"></i> Shoes</a>
+                <a href="../index.html#featured-products" data-category="Watches"><i class="fa-solid fa-stopwatch"></i> Watches</a>
+                <a href="../index.html#featured-products" data-category="Electronics"><i class="fa-solid fa-headphones"></i> Electronics</a>
+                <a href="../index.html#featured-products" data-category="Accessories"><i class="fa-solid fa-glasses"></i> Accessories</a>
+                <a href="../index.html#featured-products" data-category="Gaming"><i class="fa-solid fa-gamepad"></i> Gaming</a>
+            </div>
+        </div>
+
+        <div class="menu">
+            <a href="../index.html">Home</a>
+            <a href="../index.html#featured-products">Browse Catalog</a>
+            <a href="wishlist.html" style="color: var(--primary-color);">Wishlist</a>
+            <a href="checkout.html">Checkout</a>
+            <a href="auth.html">My Account</a>
+            <a href="#footer">Support</a>
+        </div>
+    </nav>
+
+    <!-- Wishlist Main Content -->
+    <main class="wrapper" style="padding-top: 30px; min-height: 65vh;">
+        <!-- Wishlist Toolbar -->
+        <div class="product-toolbar">
+            <div class="toolbar-left">
+                <span id="wishlist-title-label" style="font-size: 18px; font-weight: 800; color: var(--text-main);">
+                    My Wishlist (<span id="wishlist-total-count">0</span> items)
+                </span>
+            </div>
+            <div class="toolbar-right">
+                <button id="move-all-cart-btn" class="btn-add-cart" style="padding: 9px 18px; font-size: 13px;" onclick="moveAllToCart()">
+                    <i class="fa-solid fa-cart-arrow-down"></i> Move All to Cart
+                </button>
+                <button class="reset-filter-btn" onclick="clearAllWishlist()">
+                    <i class="fa-solid fa-trash-can"></i> Clear All
+                </button>
+            </div>
+        </div>
+
+        <!-- Wishlist Grid Container -->
+        <div class="product-container" id="wishlist-container">
+            <!-- Dynamic Wishlist Cards injected by wishlist.js -->
+        </div>
+    </main>
+
+    <!-- Slide-Over Cart Drawer -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <aside class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3><i class="fa-solid fa-cart-shopping"></i> Shopping Cart</h3>
+            <button id="close-cart-btn" aria-label="Close cart">&times;</button>
+        </div>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-footer">
+            <div class="cart-summary-row">
+                <span>Shipping</span>
+                <span class="free-shipping-tag">FREE</span>
+            </div>
+            <div class="cart-summary-row total-row">
+                <span>Total Amount:</span>
+                <span id="cart-total" class="total-price">₹0</span>
+            </div>
+            <a href="checkout.html" class="checkout-btn">
+                Proceed to Checkout <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Toast Notifications Container -->
+    <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+    <!-- Modern Footer -->
+    <footer class="footer" id="footer" style="margin-top: 80px;">
+        <div class="wrapper footer-bottom-content" style="padding: 25px 0;">
+            <p>&copy; 2026 NEXORA. Smart Shopping. Modern Living. All rights reserved.</p>
+            <div class="footer-badges">
+                <span><i class="fa-solid fa-shield-halved"></i> 256-bit Encrypted Checkout</span>
+                <span><i class="fa-solid fa-truck-fast"></i> Lightning Express Shipping</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../products.js"></script>
+    <script src="../js/wishlist.js"></script>
+</body>
+</html>
