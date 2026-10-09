@@ -16,8 +16,9 @@
 
 ## 🌐 Live Demo
 
-🚀 **Explore Nexora:** [Visit Website] https://surajyadav-07.github.io/nexora/
+🚀 **Live Website:** [Visit Nexora] https://nexora-kohl-chi.vercel.app/
 
+📂 **GitHub Repository:** [View Source Code]https://github.com/surajyadav-07/nexora
 ---
 
 ## 📖 About the Project
