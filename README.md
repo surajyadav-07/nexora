@@ -44,6 +44,20 @@ It is also part of my journey toward becoming a skilled software developer.
 
 ---
 
+## 📸 Screenshots
+
+### Homepage
+![NEXORA Homepage](Screenshots/Screenshot%202026-10-11%20200212.png)
+
+### Shopping Interface
+![NEXORA Shopping](Screenshots/Screenshot%202026-10-11%20200351.png)
+
+### Product Interface
+![NEXORA Product](Screenshots/Screenshot%202026-10-11%20200627.png)
+
+### Website Preview
+![NEXORA Preview](Screenshots/Screenshot%202026-10-11%20200704%20-%20Copy.png)
+
 ## 🛠️ Technologies Used
 
 | Technology | Purpose |
